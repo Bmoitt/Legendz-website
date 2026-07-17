@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catering | Legendz</title>
+  <meta name="description" content="Book Legendz Food Truck for your next event. Fill out the catering request form and we'll be in touch." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sail&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="navbar-logo-link">
+        <img src="assets/legendz-logo.png" alt="Legendz logo" class="navbar-logo" />
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Hours &amp; Location</a>
+        <a href="catering.html" class="cta active">Book Catering</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <h1>Catering Requests</h1>
+    <p>We'd love to cater your next event</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <p style="max-width: 640px; margin: 0 auto 40px; text-align: center; font-size: 18px;">
+        We're so excited to cater your upcoming event! Fill out the form below with some general information
+        and we'll reach out to you to confirm details, pricing, and availability.
+      </p>
+
+      <!--
+        SETUP NEEDED: replace YOUR_FORM_ID below with your real Formspree form ID.
+        1. Create a free account at https://formspree.io
+        2. Create a new form and copy its ID from the endpoint (looks like https://formspree.io/f/abc123)
+        3. Paste that ID in the form's data-endpoint attribute below.
+      -->
+      <form id="catering-form" data-endpoint="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+
+        <!-- Honeypot field to catch spam bots. Real visitors never see or fill this in. -->
+        <div class="honeypot-field" aria-hidden="true">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+            <span class="field-error">Please enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+            <span class="field-error">Please enter a valid email address.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required />
+            <span class="field-error">Please enter a valid phone number.</span>
+          </div>
+          <div class="field">
+            <label for="eventDate">Event Date</label>
+            <input type="date" id="eventDate" name="event_date" required />
+            <span class="field-error">Please choose a date.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="eventType">Type of Event</label>
+            <select id="eventType" name="event_type" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Birthday Party</option>
+              <option>Wedding</option>
+              <option>Corporate / Office Event</option>
+              <option>Graduation</option>
+              <option>Family Gathering</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error">Please select an event type.</span>
+          </div>
+          <div class="field">
+            <label for="guestCount">Estimated Guest Count</label>
+            <input type="number" id="guestCount" name="guest_count" min="1" required />
+            <span class="field-error">Please enter the number of guests.</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="location">Event Location</label>
+          <input type="text" id="location" name="location" placeholder="Address or venue name" required />
+          <span class="field-error">Please enter the event location.</span>
+        </div>
+
+        <div class="field">
+          <label for="comments">Comments, Menu Requests, or Dietary Restrictions <span class="optional">(optional)</span></label>
+          <textarea id="comments" name="comments" rows="4"></textarea>
+        </div>
+
+        <div id="form-status" role="status"></div>
+
+        <button type="submit" class="btn" id="submitBtn">Submit Catering Request</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
