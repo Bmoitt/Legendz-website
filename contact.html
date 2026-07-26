@@ -3,17 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hours &amp; Location | Legendz</title>
-  <meta name="description" content="Contact Legendz Food Truck and find our weekly hours and location schedule." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sail&display=swap" rel="stylesheet">
+  <title>Hours & Location | Legendz</title>
+  <meta name="description" content="Find Legendz Food Truck — weekly hours, location schedule, and contact info." />
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-photo-banner {
+      width: 100%;
+      aspect-ratio: 21/7;
+      object-fit: cover;
+      object-position: center 60%;
+      border-radius: var(--radius);
+      margin-bottom: 56px;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .contact-photo-banner { aspect-ratio: 16/9; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="nav-content">
       <a href="index.html" class="navbar-logo-link">
-        <img src="assets/legendz-logo.png" alt="Legendz logo" class="navbar-logo" />
+        <img src="assets/legendz-logo.png" alt="Legendz" class="navbar-logo" />
       </a>
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -26,52 +39,77 @@
   </header>
 
   <div class="page-header">
+    <span class="label">Come find us</span>
     <h1>Hours &amp; Location</h1>
-    <p>Come find the truck</p>
+    <p>We're out there cooking — here's where to find us.</p>
   </div>
 
-  <section>
-    <div class="container contact-grid">
+  <section style="background: var(--bg-ink);">
+    <div class="container">
 
-      <div>
-        <h2>This Week's Schedule</h2>
-        <!--
-          UPDATE WEEKLY: our location/hours change from week to week.
-          Edit the times and add a location after each day below.
-        -->
-        <ul class="schedule-list">
-          <li><span class="schedule-day">Monday</span><span>11am – 3pm</span></li>
-          <li><span class="schedule-day">Tuesday</span><span>11am – 3pm</span></li>
-          <li><span class="schedule-day">Wednesday</span><span>2pm – 9pm *may be closed some Wednesdays*</span></li>
-          <li><span class="schedule-day">Thursday</span><span>2pm – 10pm</span></li>
-          <li><span class="schedule-day">Friday</span><span>2pm – 11pm</span></li>
-          <li><span class="schedule-day">Saturday</span><span>11am – 2pm, 4pm – 11pm *Brunch 11am–2pm*</span></li>
-          <li><span class="schedule-day">Sunday</span><span>Closed</span></li>
-        </ul>
-        <p class="schedule-note">Hours and location can change week to week — call or email us to confirm before you head out.</p>
-      </div>
+      <img
+        src="assets/photos/img-0355-lg.jpg"
+        alt="Kitchen fire during cooking — Legendz at work"
+        class="contact-photo-banner reveal"
+        loading="lazy"
+      />
 
-      <div>
-        <h2>Get In Touch</h2>
-        <div class="contact-item">
-          <div class="icon-badge">📞</div>
-          <div>
-            <h3 style="margin-bottom:2px;">Phone</h3>
-            <p><a href="tel:+16789274631">(678) 927-4631</a></p>
-          </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="label" style="display:block;margin-bottom:16px;">This week</span>
+          <h2 style="margin-bottom:32px;">Schedule</h2>
+          <ul class="schedule-list">
+            <li><span class="schedule-day">Monday</span><span>11am – 3pm</span></li>
+            <li><span class="schedule-day">Tuesday</span><span>11am – 3pm</span></li>
+            <li><span class="schedule-day">Wednesday</span><span>2pm – 9pm <span class="schedule-closed">(may be closed)</span></span></li>
+            <li><span class="schedule-day">Thursday</span><span>2pm – 10pm</span></li>
+            <li><span class="schedule-day">Friday</span><span>2pm – 11pm</span></li>
+            <li><span class="schedule-day">Saturday</span>
+              <span>
+                11am – 2pm &amp; 4pm – 11pm<br>
+                <span class="schedule-closed" style="font-size:13px;">Brunch 11am – 2pm</span>
+              </span>
+            </li>
+            <li><span class="schedule-day">Sunday</span><span class="schedule-closed">Closed</span></li>
+          </ul>
+          <p style="margin-top:24px;font-size:14px;color:var(--cream-muted);">
+            Hours and location change week to week — always call or email us before heading out to confirm.
+          </p>
         </div>
-        <div class="contact-item">
-          <div class="icon-badge">✉️</div>
-          <div>
-            <h3 style="margin-bottom:2px;">Email</h3>
-            <p><a href="mailto:legendzgrille@gmail.com">legendzgrille@gmail.com</a></p>
+
+        <div class="reveal reveal-delay-2">
+          <span class="label" style="display:block;margin-bottom:16px;">Get in touch</span>
+          <h2 style="margin-bottom:32px;">Contact</h2>
+
+          <div class="contact-item">
+            <div class="icon-badge">📞</div>
+            <div>
+              <h3>Phone</h3>
+              <p><a href="tel:+16789274631">(678) 927-4631</a></p>
+            </div>
           </div>
-        </div>
-        <div class="contact-item">
-          <div class="icon-badge">🚚</div>
-          <div>
-            <h3 style="margin-bottom:2px;">Catering</h3>
-            <p>Planning an event? <a href="catering.html">Submit a catering request &rarr;</a></p>
+
+          <div class="contact-item">
+            <div class="icon-badge">✉️</div>
+            <div>
+              <h3>Email</h3>
+              <p><a href="mailto:legendzgrille@gmail.com">legendzgrille@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="icon-badge">🎉</div>
+            <div>
+              <h3>Catering</h3>
+              <p>Planning an event? <a href="catering.html">Submit a catering request →</a></p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:16px;background:rgba(233,162,39,0.06);border-color:rgba(233,162,39,0.2);">
+            <p style="font-size:15px;color:var(--cream);margin-bottom:20px;">
+              Location changes weekly — the best way to stay updated is to reach us directly before you head out.
+            </p>
+            <a href="catering.html" class="btn btn-primary" style="display:block;text-align:center;">Book Catering</a>
           </div>
         </div>
       </div>
@@ -80,7 +118,6 @@
   </section>
 
   <footer id="site-footer"></footer>
-
   <script src="script.js" defer></script>
 </body>
 </html>

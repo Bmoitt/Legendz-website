@@ -5,15 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu | Legendz</title>
   <meta name="description" content="Full menu for Legendz Food Truck — Caribbean meats, sides, desserts, and drinks." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sail&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .menu-hero-img {
+      width: 100%;
+      aspect-ratio: 21/7;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      border-radius: var(--radius);
+      margin-bottom: 56px;
+    }
+    .menu-category {
+      margin-bottom: 64px;
+    }
+    .menu-split {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 48px;
+      align-items: start;
+    }
+    .menu-dish-photo {
+      width: 100%;
+      border-radius: var(--radius);
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      position: sticky;
+      top: 100px;
+    }
+    @media (max-width: 900px) {
+      .menu-split { grid-template-columns: 1fr; }
+      .menu-dish-photo { position: static; aspect-ratio: 16/9; }
+      .menu-hero-img { aspect-ratio: 16/7; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="nav-content">
       <a href="index.html" class="navbar-logo-link">
-        <img src="assets/legendz-logo.png" alt="Legendz logo" class="navbar-logo" />
+        <img src="assets/legendz-logo.png" alt="Legendz" class="navbar-logo" />
       </a>
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -26,75 +58,144 @@
   </header>
 
   <div class="page-header">
+    <span class="label">What we're serving</span>
     <h1>Our Menu</h1>
-    <p>Caribbean flavors with a Southern twist</p>
+    <p>Caribbean flavors with a Southern twist — made from scratch daily.</p>
   </div>
 
-  <section>
+  <section style="background: var(--bg-ink);">
     <div class="container">
 
-      <div class="menu-note">
-        Every plate comes with 1 meat and 2 sides. Sides marked with an asterisk (*) are $2.00 extra per plate.
+      <img
+        src="assets/photos/img-0315-lg.jpg"
+        alt="Jerk chicken plated with rice and peas, fried plantains, and dipping sauce"
+        class="menu-hero-img reveal"
+      />
+
+      <div class="menu-note reveal">
+        Every plate comes with <strong style="color:var(--cream);">1 meat</strong> and <strong style="color:var(--cream);">2 sides</strong>. Sides marked with * are $2.00 extra per plate.
       </div>
 
-      <h2>Meats</h2>
-      <table class="menu-table">
-        <thead>
-          <tr>
-            <th>Dish</th>
-            <th class="price">Small</th>
-            <th class="price">Large</th>
-            <th class="price">Side Order</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Curry Chicken</td><td class="price">$15</td><td class="price">$20</td><td class="price">$8</td></tr>
-          <tr><td>Jerk Chicken</td><td class="price">$18</td><td class="price">$23</td><td class="price">$11</td></tr>
-          <tr><td>Stew Chicken</td><td class="price">$15</td><td class="price">$20</td><td class="price">$8</td></tr>
-          <tr><td>Fried Chicken</td><td class="price">$15</td><td class="price">$20</td><td class="price">$8</td></tr>
-          <tr><td>Curry Goat</td><td class="price">$18</td><td class="price">$23</td><td class="price">$11</td></tr>
-          <tr><td>Stew Beef</td><td class="price">$18</td><td class="price">$23</td><td class="price">$11</td></tr>
-        </tbody>
-      </table>
+      <!-- MEATS -->
+      <div class="menu-category reveal">
+        <div class="menu-split">
+          <div>
+            <div class="menu-section-title">Meats</div>
+            <table class="menu-table">
+              <thead>
+                <tr>
+                  <th style="width:50%">Dish</th>
+                  <th>Small</th>
+                  <th>Large</th>
+                  <th>Side Order</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="menu-item-name">Curry Chicken</div>
+                  </td>
+                  <td class="price">$15</td><td class="price">$20</td><td class="price">$8</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="menu-item-name">Jerk Chicken</div>
+                    <div class="menu-item-desc">House jerk rub, charred on the grill</div>
+                  </td>
+                  <td class="price">$18</td><td class="price">$23</td><td class="price">$11</td>
+                </tr>
+                <tr>
+                  <td><div class="menu-item-name">Stew Chicken</div></td>
+                  <td class="price">$15</td><td class="price">$20</td><td class="price">$8</td>
+                </tr>
+                <tr>
+                  <td><div class="menu-item-name">Fried Chicken</div></td>
+                  <td class="price">$15</td><td class="price">$20</td><td class="price">$8</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="menu-item-name">Curry Goat</div>
+                    <div class="menu-item-desc">Slow-cooked, fall-off-the-bone</div>
+                  </td>
+                  <td class="price">$18</td><td class="price">$23</td><td class="price">$11</td>
+                </tr>
+                <tr>
+                  <td><div class="menu-item-name">Stew Beef</div></td>
+                  <td class="price">$18</td><td class="price">$23</td><td class="price">$11</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <img
+            src="assets/photos/img-0350-lg.jpg"
+            alt="Curry goat with rice and peas and fried plantains"
+            class="menu-dish-photo"
+            loading="lazy"
+          />
+        </div>
+      </div>
 
-      <h2>Sides</h2>
-      <ul class="menu-flat-list">
-        <li><span>White Rice</span><span>$3.50</span></li>
-        <li><span>Yellow Rice</span><span>$3.50</span></li>
-        <li><span>Rice and Peas</span><span>$4.00</span></li>
-        <li><span>Steamed Vegetables</span><span>$2.50</span></li>
-        <li><span>Roasted Corn* (1 piece)</span><span>$4.00</span></li>
-        <li><span>Fried Plantain</span><span>$3.50</span></li>
-        <li><span>Beef Patty*</span><span>$4.00</span></li>
-      </ul>
+      <!-- SIDES -->
+      <div class="menu-category reveal">
+        <div class="menu-split" style="direction: rtl;">
+          <div style="direction: ltr;">
+            <div class="menu-section-title">Sides</div>
+            <div>
+              <div class="menu-item"><span class="menu-item-name">White Rice</span><span class="menu-item-price">$3.50</span></div>
+              <div class="menu-item"><span class="menu-item-name">Yellow Rice</span><span class="menu-item-price">$3.50</span></div>
+              <div class="menu-item"><span class="menu-item-name">Rice and Peas</span><span class="menu-item-price">$4.00</span></div>
+              <div class="menu-item"><span class="menu-item-name">Steamed Vegetables</span><span class="menu-item-price">$2.50</span></div>
+              <div class="menu-item">
+                <span class="menu-item-name">Roasted Corn * <span style="font-size:12px;color:var(--cream-muted);">(1 piece)</span></span>
+                <span class="menu-item-price">$4.00</span>
+              </div>
+              <div class="menu-item"><span class="menu-item-name">Fried Plantain</span><span class="menu-item-price">$3.50</span></div>
+              <div class="menu-item"><span class="menu-item-name">Beef Patty *</span><span class="menu-item-price">$4.00</span></div>
+            </div>
+          </div>
+          <img
+            src="assets/photos/img-0301-lg.jpg"
+            alt="Jerk chicken with white rice and golden fried plantains"
+            class="menu-dish-photo"
+            loading="lazy"
+            style="direction: ltr;"
+          />
+        </div>
+      </div>
 
-      <h2>Desserts</h2>
-      <p style="color: var(--muted-text); margin-top: -8px;">All desserts $4 per portion</p>
-      <ul class="menu-flat-list">
-        <li><span>Rum Cake</span><span>$4.00</span></li>
-        <li><span>Coconut Cake</span><span>$4.00</span></li>
-        <li><span>Coconut Drops (3 pieces)</span><span>$4.00</span></li>
-      </ul>
+      <!-- DESSERTS + DRINKS side by side -->
+      <div class="menu-category reveal">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+          <div>
+            <div class="menu-section-title">Desserts</div>
+            <p style="font-size:14px;color:var(--cream-muted);margin-bottom:20px;">All desserts $4 per portion</p>
+            <div class="menu-item"><span class="menu-item-name">Rum Cake</span><span class="menu-item-price">$4.00</span></div>
+            <div class="menu-item"><span class="menu-item-name">Coconut Cake</span><span class="menu-item-price">$4.00</span></div>
+            <div class="menu-item"><span class="menu-item-name">Coconut Drops <span style="font-size:12px;color:var(--cream-muted);">(3 pieces)</span></span><span class="menu-item-price">$4.00</span></div>
+          </div>
+          <div>
+            <div class="menu-section-title">Drinks</div>
+            <p style="font-size:14px;color:var(--cream-muted);margin-bottom:20px;">All juices $5</p>
+            <div class="menu-item"><span class="menu-item-name">Carrot Juice</span><span class="menu-item-price">$5.00</span></div>
+            <div class="menu-item"><span class="menu-item-name">Ginger Beer</span><span class="menu-item-price">$5.00</span></div>
+            <div class="menu-item"><span class="menu-item-name">Beet Juice</span><span class="menu-item-price">$5.00</span></div>
+            <div class="menu-item"><span class="menu-item-name">Sorrel</span><span class="menu-item-price">$5.00</span></div>
+            <div class="menu-item"><span class="menu-item-name">Orange Juice</span><span class="menu-item-price">$5.00</span></div>
+          </div>
+        </div>
+      </div>
 
-      <h2>Drinks</h2>
-      <p style="color: var(--muted-text); margin-top: -8px;">All juices $5</p>
-      <ul class="menu-flat-list">
-        <li><span>Carrot Juice</span><span>$5.00</span></li>
-        <li><span>Ginger Beer</span><span>$5.00</span></li>
-        <li><span>Beet Juice</span><span>$5.00</span></li>
-        <li><span>Sorrel</span><span>$5.00</span></li>
-        <li><span>Orange Juice</span><span>$5.00</span></li>
-      </ul>
-
-      <div style="text-align:center; margin-top: 40px;">
-        <a href="catering.html" class="btn">Order This For Your Event</a>
+      <!-- Bottom CTA -->
+      <div style="text-align:center;padding:48px 0 16px;" class="reveal">
+        <h3 style="font-size:28px;margin-bottom:12px;">Want this at your event?</h3>
+        <p style="margin-bottom:28px;">We cater private parties, weddings, and corporate events.</p>
+        <a href="catering.html" class="btn btn-primary">Book Catering</a>
       </div>
 
     </div>
   </section>
 
   <footer id="site-footer"></footer>
-
   <script src="script.js" defer></script>
 </body>
 </html>

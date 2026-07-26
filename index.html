@@ -3,17 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legendz | Caribbean-Southern Food Truck</title>
-  <meta name="description" content="Legendz Food Truck serves Caribbean flavors with a Southern twist. Book us for your next event or catch us at our weekly locations." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sail&display=swap" rel="stylesheet">
+  <title>Legendz | Caribbean-Southern Food Truck & Catering</title>
+  <meta name="description" content="Legendz serves Caribbean flavors with a Southern twist — jerk chicken, curry goat, fried plantains and more. Book us for catering or catch the truck this week." />
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Story photo */
+    .story-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+    }
+    /* Dish card photo */
+    .dish-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius) var(--radius) 0 0;
+      display: block;
+    }
+    .dish-card {
+      overflow: hidden;
+      padding: 0;
+    }
+    .dish-card-body {
+      padding: 24px 28px 28px;
+    }
+    /* Gallery mosaic */
+    .gallery-mosaic {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 220px 220px;
+      gap: 8px;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .gallery-mosaic .gm-item {
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-surface);
+    }
+    .gallery-mosaic .gm-item.wide { grid-column: span 2; }
+    .gallery-mosaic .gm-item.tall { grid-row: span 2; }
+    .gallery-mosaic .gm-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s var(--ease);
+    }
+    .gallery-mosaic .gm-item:hover img { transform: scale(1.06); }
+    @media (max-width: 900px) {
+      .gallery-mosaic {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .gallery-mosaic .gm-item.wide { grid-column: span 1; }
+      .gallery-mosaic .gm-item.tall { grid-row: span 1; }
+      .gallery-mosaic .gm-item { aspect-ratio: 4/3; }
+    }
+    @media (max-width: 600px) {
+      .gallery-mosaic { grid-template-columns: 1fr 1fr; }
+    }
+    /* Story section grid */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .story-photo-wrap {
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(233,162,39,0.12);
+    }
+    /* Dish cards grid */
+    .dishes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .dishes-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="nav-content">
       <a href="index.html" class="navbar-logo-link">
-        <img src="assets/legendz-logo.png" alt="Legendz logo" class="navbar-logo" />
+        <img src="assets/legendz-logo.png" alt="Legendz" class="navbar-logo" />
       </a>
       <nav class="nav-links" id="navLinks">
         <a href="index.html" class="active">Home</a>
@@ -25,90 +107,198 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ======== HERO ======== -->
   <section class="hero">
+    <div class="hero-bg-parallax" style="background-image:url('assets/photos/img-0355-lg.jpg');background-size:cover;background-position:center 30%;"></div>
     <div class="hero-content">
-      <img src="assets/legendz-logo.png" alt="Legendz logo" class="hero-logo" style="filter: brightness(0) invert(1) drop-shadow(0 6px 14px rgba(0,0,0,0.35));" />
-      <h1>Legendz</h1>
-      <p class="tagline">Caribbean flavors with a Southern twist — on wheels.</p>
+      <img src="assets/legendz-logo.png" alt="Legendz" class="hero-logo" />
+      <p class="label" style="margin-bottom: 20px;">Caribbean · Southern · On Wheels</p>
+      <h1>Born from<br><em>family</em> tables.</h1>
+      <p class="tagline">
+        Tandeka and Wayne bring the jerk, the curry, the love —
+        every plate made from scratch, the way it's always been.
+      </p>
       <div class="hero-buttons">
-        <a href="menu.html" class="btn">View Our Menu</a>
+        <a href="menu.html" class="btn btn-primary">Explore the Menu</a>
         <a href="catering.html" class="btn btn-outline">Book Catering</a>
       </div>
     </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header">
-        <h2>Our Story</h2>
-      </div>
-      <p style="max-width: 760px; margin: 0 auto; text-align: center; font-size: 18px;">
-        For years, Tandeka and Wayne poured their love for cooking into every holiday, turning each gathering
-        into a feast fit for royalty. Now they're bringing that same warmth and tradition to the streets —
-        blending the rich traditions of Caribbean cuisine with the comfort of Southern cooking. Legendz is
-        proudly Caribbean flavors with a Southern twist, served hot, right off the truck.
-      </p>
+    <div class="scroll-cue" role="button" tabindex="0" aria-label="Scroll down">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </div>
   </section>
 
-  <!-- Highlights -->
-  <section class="alt">
+  <!-- ======== WHY LEGENDZ ======== -->
+  <section class="alt section-cut" style="background: var(--bg-alt);">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header centered reveal">
+        <span class="label">What makes us different</span>
         <h2>Why Legendz</h2>
       </div>
-      <div class="grid grid-3">
-        <div class="card">
+      <div class="grid grid-3 stagger-children">
+        <div class="card reveal reveal-delay-1">
           <div class="icon-badge">🍛</div>
-          <h3>Scratch-Made Flavor</h3>
-          <p>Curry, jerk, and stew recipes built on family tradition, made fresh to order.</p>
+          <h3>Scratch-Made</h3>
+          <p>Every curry, jerk rub, and stew recipe built on family tradition — made fresh to order, never reheated.</p>
         </div>
-        <div class="card">
+        <div class="card reveal reveal-delay-2">
           <div class="icon-badge">🚚</div>
-          <h3>Find Us Around Town</h3>
-          <p>Catch our truck at a new spot every week — check our schedule to find us near you.</p>
+          <h3>Find the Truck</h3>
+          <p>Rotating locations every week. Follow us and never miss a plate.</p>
+          <a href="contact.html" class="btn-ghost" style="display:inline-block;margin-top:16px;font-size:14px;">This week's schedule →</a>
         </div>
-        <div class="card">
+        <div class="card reveal reveal-delay-3">
           <div class="icon-badge">🎉</div>
-          <h3>We Cater Events</h3>
-          <p>From birthdays to office parties, we bring the Legendz experience to you.</p>
+          <h3>We Cater</h3>
+          <p>Birthdays, weddings, corporate — we bring the full Legendz experience to your event.</p>
+          <a href="catering.html" class="btn-ghost" style="display:inline-block;margin-top:16px;font-size:14px;">Request a quote →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Schedule Snippet -->
-  <section id="schedule">
+  <!-- ======== OUR STORY ======== -->
+  <section class="section-cut-top" style="background: var(--bg-ink);">
     <div class="container">
-      <div class="section-header">
-        <h2>This Week's Schedule</h2>
-        <p>Our location and hours can change weekly — call or email us to confirm before you head out.</p>
+      <div class="story-grid">
+        <div class="reveal">
+          <span class="label">Our story</span>
+          <h2 style="margin:16px 0 24px;">Cooked with love,<br>served with pride.</h2>
+          <p style="margin-bottom:20px;">
+            For years, Tandeka and Wayne poured their love for cooking into every
+            holiday — turning each gathering into a feast fit for royalty. Now
+            they're bringing that same warmth and tradition to the streets.
+          </p>
+          <p>
+            Legendz is proudly Caribbean flavors with a Southern twist: rich jerk
+            chicken, slow-stewed goat, golden fried plantains, and desserts that
+            taste like home. Every plate tells a story.
+          </p>
+          <a href="menu.html" class="btn btn-primary" style="margin-top:36px;display:inline-block;">See What's Cooking</a>
+        </div>
+        <div class="story-photo-wrap reveal reveal-delay-2">
+          <img src="assets/photos/img-0051-lg.jpg" alt="Beautifully plated Caribbean dish with rice, stewed meat, and fresh herbs" class="story-img" />
+        </div>
       </div>
-      <ul class="schedule-list">
-        <li><span class="schedule-day">Monday</span><span>11am – 3pm</span></li>
-        <li><span class="schedule-day">Tuesday</span><span>11am – 3pm</span></li>
-        <li><span class="schedule-day">Wednesday</span><span>2pm – 9pm *may be closed some Wednesdays*</span></li>
-        <li><span class="schedule-day">Thursday</span><span>2pm – 10pm</span></li>
-        <li><span class="schedule-day">Friday</span><span>2pm – 11pm</span></li>
-        <li><span class="schedule-day">Saturday</span><span>11am – 2pm, 4pm – 11pm *Brunch 11am–2pm*</span></li>
-        <li><span class="schedule-day">Sunday</span><span>Closed</span></li>
-      </ul>
-      <p class="schedule-note">
-        <a href="contact.html">See full hours &amp; location details &rarr;</a>
-      </p>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="alt" style="text-align:center;">
+  <!-- ======== SIGNATURE DISHES ======== -->
+  <section style="background: var(--bg-surface);">
     <div class="container">
-      <h2>Planning an Event?</h2>
-      <p style="max-width: 560px; margin: 0 auto 24px; color: var(--muted-text);">
-        We'd love to cater your next party, wedding, or office gathering. Tell us the details and we'll be in touch.
-      </p>
-      <a href="catering.html" class="btn">Request Catering</a>
+      <div class="section-header centered reveal">
+        <span class="label">On the menu</span>
+        <h2>The Plates</h2>
+        <p>Every plate comes with your choice of 1 meat and 2 sides.</p>
+      </div>
+
+      <div class="dishes-grid stagger-children">
+        <div class="card dish-card reveal reveal-delay-1">
+          <img src="assets/photos/img-0350-sm.jpg" alt="Curry goat with rice and peas and fried plantains" class="dish-photo" />
+          <div class="dish-card-body">
+            <h3 style="font-size:22px;margin-bottom:8px;">Curry Goat</h3>
+            <p style="font-size:14px;margin-bottom:16px;">Slow-cooked in rich island spices until fall-off-the-bone tender. Served with rice & peas and sweet plantain.</p>
+            <span class="label">From $18</span>
+          </div>
+        </div>
+        <div class="card dish-card reveal reveal-delay-2">
+          <img src="assets/photos/img-0301-sm.jpg" alt="Jerk chicken with white rice and fried plantains" class="dish-photo" />
+          <div class="dish-card-body">
+            <h3 style="font-size:22px;margin-bottom:8px;">Jerk Chicken</h3>
+            <p style="font-size:14px;margin-bottom:16px;">Smoky, charred, and seasoned with our house jerk rub. Our most-ordered plate — and for good reason.</p>
+            <span class="label">From $18</span>
+          </div>
+        </div>
+        <div class="card dish-card reveal reveal-delay-3">
+          <img src="assets/photos/img-0340-sm.jpg" alt="Golden fried chicken with dipping sauce" class="dish-photo" />
+          <div class="dish-card-body">
+            <h3 style="font-size:22px;margin-bottom:8px;">Fried Chicken</h3>
+            <p style="font-size:14px;margin-bottom:16px;">Crispy on the outside, juicy in the middle. Southern comfort done the Legendz way.</p>
+            <span class="label">From $15</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;" class="reveal">
+        <a href="menu.html" class="btn btn-primary">Full Menu &amp; Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PHOTO GALLERY ======== -->
+  <section style="background: var(--bg-ink);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">From the kitchen</span>
+        <h2>Every plate,<br>made with fire.</h2>
+      </div>
+      <div class="gallery-mosaic reveal">
+        <div class="gm-item wide">
+          <img src="assets/photos/img-0315-lg.jpg" alt="Jerk chicken with rice and peas plated upscale" loading="lazy" />
+        </div>
+        <div class="gm-item">
+          <img src="assets/photos/img-0335-sm.jpg" alt="Curry shrimp simmering in pan on stove" loading="lazy" />
+        </div>
+        <div class="gm-item">
+          <img src="assets/photos/img-0363-sm.jpg" alt="Flames rising in the kitchen during cooking" loading="lazy" />
+        </div>
+        <div class="gm-item">
+          <img src="assets/photos/img-0328-sm.jpg" alt="Grilled burger with fries and dipping sauce" loading="lazy" />
+        </div>
+        <div class="gm-item">
+          <img src="assets/photos/img-0203-sm.jpg" alt="Plated meal with roti, rice, salad, and fried chicken" loading="lazy" />
+        </div>
+        <div class="gm-item">
+          <img src="assets/photos/img-0065-sm.jpg" alt="Stew beef over rice with fresh salad" loading="lazy" />
+        </div>
+        <div class="gm-item">
+          <img src="assets/photos/img-0329-sm.jpg" alt="Caribbean burger with slaw and fries" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SCHEDULE + CTA ======== -->
+  <section style="background: var(--bg-surface);">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="contact-grid">
+        <div class="reveal">
+          <span class="label">Find us this week</span>
+          <h2 style="margin:16px 0 32px;">Where We'll Be</h2>
+          <ul class="schedule-list">
+            <li><span class="schedule-day">Monday</span><span>11am – 3pm</span></li>
+            <li><span class="schedule-day">Tuesday</span><span>11am – 3pm</span></li>
+            <li><span class="schedule-day">Wednesday</span><span>2pm – 9pm <span class="schedule-closed">(may be closed)</span></span></li>
+            <li><span class="schedule-day">Thursday</span><span>2pm – 10pm</span></li>
+            <li><span class="schedule-day">Friday</span><span>2pm – 11pm</span></li>
+            <li><span class="schedule-day">Saturday</span><span>11am – 2pm &amp; 4pm – 11pm</span></li>
+            <li><span class="schedule-day">Sunday</span><span class="schedule-closed">Closed</span></li>
+          </ul>
+          <p style="margin-top:20px;font-size:14px;">Hours change weekly — call or email to confirm before heading out.</p>
+          <a href="contact.html" class="btn btn-outline" style="margin-top:28px;display:inline-block;">Full Contact Info</a>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="card" style="background:rgba(233,162,39,0.06);border-color:rgba(233,162,39,0.22);">
+            <span class="label" style="display:block;margin-bottom:16px;">Catering</span>
+            <h3 style="font-size:30px;margin-bottom:16px;">Planning an event?</h3>
+            <p style="margin-bottom:28px;">
+              We'd love to cater your next party, wedding, or office gathering.
+              Tell us the details and we'll make it legendary.
+            </p>
+            <a href="catering.html" class="btn btn-primary" style="display:block;text-align:center;">Request Catering</a>
+            <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(242,232,213,0.08);">
+              <p style="font-size:14px;margin-bottom:8px;">
+                📞 <a href="tel:+16789274631" style="color:var(--cream);">(678) 927-4631</a>
+              </p>
+              <p style="font-size:14px;">
+                ✉️ <a href="mailto:legendzgrille@gmail.com" style="color:var(--cream);">legendzgrille@gmail.com</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
